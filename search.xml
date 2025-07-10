@@ -1099,8 +1099,8 @@ J&amp;=L+s
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/06/19/%E5%A4%A7%E4%B8%89%E4%B8%8B/%E5%85%89%E9%80%9A%E4%BF%A1%E6%95%B4%E7%90%86/</url>
+    <title>光通信整理</title>
+    <url>/2025/07/10/%E5%A4%A7%E4%B8%89%E4%B8%8B/%E5%85%89%E9%80%9A%E4%BF%A1%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h3 id="一-填空题"><a class="markdownIt-Anchor" href="#一-填空题"></a> 一、填空题</h3>
 <table>
 <thead>
@@ -1502,6 +1502,13 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
 <p>2）稳定振荡条件——增益饱和效应（1分）</p>
 <p>当入射光强增加到一定程度时，增益系数将随光强的增大而减小并最终达到稳定，这种现象称为增益饱和效应。（2分）</p>
 ]]></content>
+      <categories>
+        <category>开卷考试</category>
+      </categories>
+      <tags>
+        <tag>大学记录</tag>
+        <tag>光通信</tag>
+      </tags>
   </entry>
   <entry>
     <title>Avalonia使用.NET For Anroid API（以文件下载为例）</title>
@@ -1523,7 +1530,7 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
 <div class="code-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// MyApp/ViewModels/MainViewModel.cs</span></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> MyApp.Services;</span><br><span class="line"><span class="keyword">using</span> ReactiveUI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyApp.ViewModels</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MainViewModel</span> : <span class="title">ViewModelBase</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">readonly</span> IFileDownloadService _downloadService;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">string</span> _status;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> Status</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span> =&gt; _status;</span><br><span class="line">            <span class="keyword">set</span> =&gt; <span class="keyword">this</span>.RaiseAndSetIfChanged(<span class="keyword">ref</span> _status, <span class="keyword">value</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">public</span> ReactiveCommand&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; DownloadCommand &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainViewModel</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 获取平台特定服务</span></span><br><span class="line">            _downloadService = App.GetService&lt;IFileDownloadService&gt;();</span><br><span class="line">            </span><br><span class="line">            DownloadCommand = ReactiveCommand.CreateFromTask&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;(DownloadFileAsync);</span><br><span class="line">            Status = <span class="string">&quot;准备下载&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">async</span> Task&lt;<span class="built_in">string</span>&gt; <span class="title">DownloadFileAsync</span>(<span class="params"><span class="built_in">string</span> url</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                Status = <span class="string">&quot;开始下载...&quot;</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 如果服务不可用（例如在设计时），则返回错误</span></span><br><span class="line">                <span class="keyword">if</span> (_downloadService == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Status = <span class="string">&quot;下载服务不可用&quot;</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 执行下载</span></span><br><span class="line">                <span class="built_in">string</span> filename = <span class="string">$&quot;download_<span class="subst">&#123;DateTime.Now:yyyyMMddHHmmss&#125;</span>.pdf&quot;</span>;</span><br><span class="line">                <span class="built_in">string</span> filePath = <span class="keyword">await</span> _downloadService.DownloadFileAsync(url, filename);</span><br><span class="line">                </span><br><span class="line">                Status = <span class="string">$&quot;下载完成: <span class="subst">&#123;filePath&#125;</span>&quot;</span>;</span><br><span class="line">                <span class="keyword">return</span> filePath;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                Status = <span class="string">$&quot;下载失败: <span class="subst">&#123;ex.Message&#125;</span>&quot;</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <h2 id="7-在xaml中添加下载按钮"><a class="markdownIt-Anchor" href="#7-在xaml中添加下载按钮"></a> 7. 在XAML中添加下载按钮</h2>
 <div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MyApp/Views/MainView.axaml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">UserControl</span> <span class="attr">xmlns</span>=<span class="string">&quot;https://github.com/avaloniaui&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:x</span>=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:vm</span>=<span class="string">&quot;using:MyApp.ViewModels&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">x:Class</span>=<span class="string">&quot;MyApp.Views.MainView&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Design.DataContext</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">vm:MainViewModel</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Design.DataContext</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">StackPanel</span> <span class="attr">Spacing</span>=<span class="string">&quot;20&quot;</span> <span class="attr">Margin</span>=<span class="string">&quot;20&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">&quot;下载PDF示例&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">Command</span>=<span class="string">&quot;&#123;Binding DownloadCommand&#125;&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">CommandParameter</span>=<span class="string">&quot;https://example.com/sample.pdf&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">&quot;&#123;Binding Status&#125;&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">UserControl</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<h2 id="3-完整流程演示"><a class="markdownIt-Anchor" href="#3-完整流程演示"></a> 3. 完整流程演示</h2>
+<h2 id="8-完整流程"><a class="markdownIt-Anchor" href="#8-完整流程"></a> 8. 完整流程</h2>
 <ol>
 <li>应用启动</li>
 </ol>
@@ -1586,17 +1593,6 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
 </li>
 </ul>
 ]]></content>
-      <categories>
-        <category>.NET</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WPF从入门到入土</title>
-    <url>/2025/01/26/%E5%A4%A7%E4%B8%89%E4%B8%8B/WPF%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>.NET</category>
       </categories>
@@ -1670,11 +1666,6 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/01/26/%E5%A4%A7%E4%BA%8C%E4%B8%8B/%E6%9C%AA%E5%91%BD%E5%90%8D/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>逆向案例与笔记</title>
     <url>/2025/03/01/%E9%80%86%E5%90%91/%E6%A1%88%E4%BE%8B%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[]]></content>
@@ -1686,8 +1677,8 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/06/18/%E5%A4%A7%E4%B8%89%E4%B8%8B/%E5%85%89%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <title>光通信系统课后习题整理</title>
+    <url>/2025/07/10/%E5%A4%A7%E4%B8%89%E4%B8%8B/%E5%85%89%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="第一章"><a class="markdownIt-Anchor" href="#第一章"></a> 第一章</h1>
 <h3 id="1-什么是光纤通信光纤通信有哪些优点"><a class="markdownIt-Anchor" href="#1-什么是光纤通信光纤通信有哪些优点"></a> 1. 什么是光纤通信？光纤通信有哪些优点？</h3>
 <p>定义：<br />
@@ -2826,5 +2817,12 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </tbody>
 </table>
 ]]></content>
+      <categories>
+        <category>开卷考试</category>
+      </categories>
+      <tags>
+        <tag>大学记录</tag>
+        <tag>光通信</tag>
+      </tags>
   </entry>
 </search>
