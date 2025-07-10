@@ -18,20 +18,23 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="(一) 图像增广 对图像进行随机变化(翻转和裁剪)能够扩大训练集的规模也能减少模型对某些属性的依赖,提高泛化能力. torchvision.transforms模块提供了翻转和裁剪的方法  RandomHorizontalFlip()50%几率使得图像向左或向右翻转 RandomVerticalFlip()50%几率使得图像向上或向下翻转 RandomResizedCrop((200, 200)">
+    
+    
+        
+        <meta name="description" content="EliorFoy&#39;s Blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动手学深度学习（八）：计算机视觉">
 <meta property="og:url" content="https://eliorfoy.github.io/2024/11/11/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AB%EF%BC%89%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="(一) 图像增广 对图像进行随机变化(翻转和裁剪)能够扩大训练集的规模也能减少模型对某些属性的依赖,提高泛化能力. torchvision.transforms模块提供了翻转和裁剪的方法  RandomHorizontalFlip()50%几率使得图像向左或向右翻转 RandomVerticalFlip()50%几率使得图像向上或向下翻转 RandomResizedCrop((200, 200)">
+<meta property="og:description" content="EliorFoy&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zh-v2.d2l.ai/_images/iou.svg">
+<meta property="og:image" content="https://eliorfoy.github.io/images/logo.jpg">
 <meta property="article:published_time" content="2024-11-10T16:26:12.000Z">
 <meta property="article:modified_time" content="2024-11-10T16:26:19.477Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zh-v2.d2l.ai/_images/iou.svg">
+<meta name="twitter:image" content="https://eliorfoy.github.io/images/logo.jpg">
     
     
     <!--- Icon Part-->
@@ -60,7 +63,7 @@
 
     
         
-<link rel="stylesheet" href="/build/css/tailwind.css">
+<link rel="stylesheet" href="/css/build/tailwind.css">
 
     
 
@@ -80,13 +83,13 @@
     
     
         
-<script src="/build/js/libs/anime.min.js"></script>
+<script src="/js/build/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
     window.config = {"hostname":"eliorfoy.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"�Ƽ���???","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Just Do It!"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Time Flies","subtitle":{"text":["I can��t go back to yesterday,because I was a different person then."],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/EliorFoy","instagram":null,"zhihu":null,"twitter":null,"email":"1700118540@qq.com"},"qrs":{"weixin":"/images/weixin.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Linkin Park-Leave Out All The Rest(Live at the DTE Energy Music Theatre, Clarkston, MI, 8??22??2007 -)","artist":"Linkin Park","url":"/music/mp3/Linkin Park-Leave Out All The Rest(Live at the DTE Energy Music Theatre, Clarkston, MI, 8??22??2007 -).mp3","cover":"/music/logo/th.jpg","lrc":null},{"name":"stay","artist":"Zedd/Alessia Cara","url":"/music/mp3/Zedd&Alessia Cara-Stay.mp3","cover":"/music/logo/th.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Friends":{"path":"/links/","icon":"fa-regular fa-link"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/EliorFoy?tab=repositories"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"�Ƽ���???","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Just Do It!"},"open_graph":{"enable":true,"image":"https://eliorfoy.github.io/images/logo.jpg","description":"EliorFoy's Blog"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Time Flies","subtitle":{"text":["I can��t go back to yesterday,because I was a different person then."],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/EliorFoy","instagram":null,"zhihu":null,"twitter":null,"email":"1700118540@qq.com"},"qrs":{"weixin":"/images/weixin.jpg"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Linkin Park-Leave Out All The Rest(Live at the DTE Energy Music Theatre, Clarkston, MI, 8??22??2007 -)","artist":"Linkin Park","url":"/music/mp3/Linkin Park-Leave Out All The Rest(Live at the DTE Energy Music Theatre, Clarkston, MI, 8??22??2007 -).mp3","cover":"/music/logo/th.jpg","lrc":null},{"name":"stay","artist":"Zedd/Alessia Cara","url":"/music/mp3/Zedd&Alessia Cara-Stay.mp3","cover":"/music/logo/th.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Friends":{"path":"/links/","icon":"fa-regular fa-link"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/EliorFoy?tab=repositories"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -495,15 +498,15 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -540,7 +543,7 @@
 				<div class="author flex items-center">
 					<span class="name text-default-text-color text-lg font-semibold">EliorFoy</span>
 					
-					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
 					
 				</div>
 				<div class="meta-info">
@@ -637,7 +640,7 @@
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>m</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(s_1,r_1),(s_1,r_2),...,(s_1,r_2),(s_1,r_m),(s_2,r_1),...,(s_n,r_1)
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
 <p>生成锚框坐标张量的实例代码:</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">multibox_prior</span>(<span class="params">data, sizes, ratios</span>): <span class="comment"># data是输入数据，sizes是锚框的大小列表，ratios是锚框的宽高比列表。</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成以每个像素为中心具有不同形状的锚框&quot;&quot;&quot;</span></span><br><span class="line">    in_height, in_width = data.shape[-<span class="number">2</span>:]</span><br><span class="line">    device, num_sizes, num_ratios = data.device, <span class="built_in">len</span>(sizes), <span class="built_in">len</span>(ratios)</span><br><span class="line">    boxes_per_pixel = (num_sizes + num_ratios - <span class="number">1</span>)</span><br><span class="line">    size_tensor = torch.tensor(sizes, device=device)</span><br><span class="line">    ratio_tensor = torch.tensor(ratios, device=device)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 为了将锚点移动到像素的中心，需要设置偏移量。</span></span><br><span class="line">    <span class="comment"># 因为一个像素的高为1且宽为1，我们选择偏移我们的中心0.5</span></span><br><span class="line">    offset_h, offset_w = <span class="number">0.5</span>, <span class="number">0.5</span></span><br><span class="line">    steps_h = <span class="number">1.0</span> / in_height  <span class="comment"># 在y轴上缩放步长</span></span><br><span class="line">    steps_w = <span class="number">1.0</span> / in_width  <span class="comment"># 在x轴上缩放步长</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成锚框的所有中心点</span></span><br><span class="line">    center_h = (torch.arange(in_height, device=device) + offset_h) * steps_h</span><br><span class="line">    center_w = (torch.arange(in_width, device=device) + offset_w) * steps_w</span><br><span class="line">    shift_y, shift_x = torch.meshgrid(center_h, center_w, indexing=<span class="string">&#x27;ij&#x27;</span>)</span><br><span class="line">    shift_y, shift_x = shift_y.reshape(-<span class="number">1</span>), shift_x.reshape(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成“boxes_per_pixel”个高和宽，</span></span><br><span class="line">    <span class="comment"># 之后用于创建锚框的四角坐标(xmin,xmax,ymin,ymax)</span></span><br><span class="line">    w = torch.cat((size_tensor * torch.sqrt(ratio_tensor[<span class="number">0</span>]),</span><br><span class="line">                   sizes[<span class="number">0</span>] * torch.sqrt(ratio_tensor[<span class="number">1</span>:])))\</span><br><span class="line">                   * in_height / in_width  <span class="comment"># 处理矩形输入</span></span><br><span class="line">    h = torch.cat((size_tensor / torch.sqrt(ratio_tensor[<span class="number">0</span>]),</span><br><span class="line">                   sizes[<span class="number">0</span>] / torch.sqrt(ratio_tensor[<span class="number">1</span>:])))</span><br><span class="line">    <span class="comment"># 除以2来获得半高和半宽</span></span><br><span class="line">    anchor_manipulations = torch.stack((-w, -h, w, h)).T.repeat(</span><br><span class="line">                                        in_height * in_width, <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每个中心点都将有“boxes_per_pixel”个锚框，</span></span><br><span class="line">    <span class="comment"># 所以生成含所有锚框中心的网格，重复了“boxes_per_pixel”次</span></span><br><span class="line">    out_grid = torch.stack([shift_x, shift_y, shift_x, shift_y],</span><br><span class="line">                dim=<span class="number">1</span>).repeat_interleave(boxes_per_pixel, dim=<span class="number">0</span>)</span><br><span class="line">    output = out_grid + anchor_manipulations</span><br><span class="line">    <span class="keyword">return</span> output.unsqueeze(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">multibox_prior</span>(<span class="params">data, sizes, ratios</span>): <span class="comment"># data是输入数据，sizes是锚框的大小列表，ratios是锚框的宽高比列表。</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成以每个像素为中心具有不同形状的锚框&quot;&quot;&quot;</span></span><br><span class="line">    in_height, in_width = data.shape[-<span class="number">2</span>:]</span><br><span class="line">    device, num_sizes, num_ratios = data.device, <span class="built_in">len</span>(sizes), <span class="built_in">len</span>(ratios)</span><br><span class="line">    boxes_per_pixel = (num_sizes + num_ratios - <span class="number">1</span>)</span><br><span class="line">    size_tensor = torch.tensor(sizes, device=device)</span><br><span class="line">    ratio_tensor = torch.tensor(ratios, device=device)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 为了将锚点移动到像素的中心，需要设置偏移量。</span></span><br><span class="line">    <span class="comment"># 因为一个像素的高为1且宽为1，我们选择偏移我们的中心0.5</span></span><br><span class="line">    offset_h, offset_w = <span class="number">0.5</span>, <span class="number">0.5</span></span><br><span class="line">    steps_h = <span class="number">1.0</span> / in_height  <span class="comment"># 在y轴上缩放步长</span></span><br><span class="line">    steps_w = <span class="number">1.0</span> / in_width  <span class="comment"># 在x轴上缩放步长</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成锚框的所有中心点</span></span><br><span class="line">    center_h = (torch.arange(in_height, device=device) + offset_h) * steps_h</span><br><span class="line">    center_w = (torch.arange(in_width, device=device) + offset_w) * steps_w</span><br><span class="line">    shift_y, shift_x = torch.meshgrid(center_h, center_w, indexing=<span class="string">&#x27;ij&#x27;</span>)</span><br><span class="line">    shift_y, shift_x = shift_y.reshape(-<span class="number">1</span>), shift_x.reshape(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成“boxes_per_pixel”个高和宽，</span></span><br><span class="line">    <span class="comment"># 之后用于创建锚框的四角坐标(xmin,xmax,ymin,ymax)</span></span><br><span class="line">    w = torch.cat((size_tensor * torch.sqrt(ratio_tensor[<span class="number">0</span>]),</span><br><span class="line">                   sizes[<span class="number">0</span>] * torch.sqrt(ratio_tensor[<span class="number">1</span>:])))\</span><br><span class="line">                   * in_height / in_width  <span class="comment"># 处理矩形输入</span></span><br><span class="line">    h = torch.cat((size_tensor / torch.sqrt(ratio_tensor[<span class="number">0</span>]),</span><br><span class="line">                   sizes[<span class="number">0</span>] / torch.sqrt(ratio_tensor[<span class="number">1</span>:])))</span><br><span class="line">    <span class="comment"># 除以2来获得半高和半宽</span></span><br><span class="line">    anchor_manipulations = torch.stack((-w, -h, w, h)).T.repeat(</span><br><span class="line">                                        in_height * in_width, <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每个中心点都将有“boxes_per_pixel”个锚框，</span></span><br><span class="line">    <span class="comment"># 所以生成含所有锚框中心的网格，重复了“boxes_per_pixel”次</span></span><br><span class="line">    out_grid = torch.stack([shift_x, shift_y, shift_x, shift_y],</span><br><span class="line">                dim=<span class="number">1</span>).repeat_interleave(boxes_per_pixel, dim=<span class="number">0</span>)</span><br><span class="line">    output = out_grid + anchor_manipulations</span><br><span class="line">    <span class="keyword">return</span> output.unsqueeze(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></div>
 <p>只是做一个参考,我们完全可以自己实现.</p>
 <p><strong>交并比(intersection over union,loU)</strong><br />
 如果需要描述锚框和真实边界框之间的相似性,可以用杰卡德系数表示(两个边界框的杰卡德系数就叫<strong>交并比</strong>),一张图就很显然了:<br />
@@ -880,7 +883,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 11 篇文章
+                        共撰写了 17 篇文章
                     </span>
                     
                 </p>
@@ -905,7 +908,7 @@
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
         </div>
         
         
@@ -1030,17 +1033,17 @@
 
 
 
-<script src="/build/js/libs/Swup.min.js"></script>
+<script src="/js/build/libs/Swup.min.js"></script>
 
-<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1065,45 +1068,45 @@
 
 
 	
-<script src="/build/js/tools/imageViewer.js" type="module"></script>
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
 
-<script src="/build/js/utils.js" type="module"></script>
+<script src="/js/build/utils.js" type="module"></script>
 
-<script src="/build/js/main.js" type="module"></script>
+<script src="/js/build/main.js" type="module"></script>
 
-<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/build/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/build/js/tools/localSearch.js" type="module"></script>
-
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/build/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/build/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/tools/runtime.js"></script>
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/build/js/libs/odometer.min.js"></script>
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
@@ -1112,10 +1115,10 @@
 
 
   
-<script src="/build/js/libs/Typed.min.js"></script>
+<script src="/js/build/libs/Typed.min.js"></script>
 
   
-<script src="/build/js/plugins/typed.js" type="module"></script>
+<script src="/js/build/plugins/typed.js" type="module"></script>
 
 
 
@@ -1128,19 +1131,19 @@
 
 
     
-<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
 
-<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
 
-<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
-
-
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
 
 
-<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
 
 
-<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
 
 
 
@@ -1149,10 +1152,11 @@
 	
 	<div id="aplayer"></div>
 
-<script src="/build/js/libs/APlayer.min.js"></script>
+<script src="/js/build/libs/APlayer.min.js"></script>
 
 
-<script src="/build/js/plugins/aplayer.js"></script>
+<script src="/js/build/plugins/aplayer.js"></script>
+
 
 	
 </body>
