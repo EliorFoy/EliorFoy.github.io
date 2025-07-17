@@ -1648,7 +1648,7 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
       </tags>
   </entry>
   <entry>
-    <title>标题</title>
+    <title>Ubuntu使用.NET SDK中遇到的错误解决</title>
     <url>/2025/01/26/%E5%A4%A7%E4%BA%8C%E4%B8%8B/Ubuntu%E4%BD%BF%E7%94%A8.NET%20SDK%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
     <content><![CDATA[<p>在 Ubuntu 中用 snap 安装. NET SDK 8.0 后虽然控制台能够正常使用 dotnet  cli，但是在 vscode 中安装 c# dev ket 扩展的时候，报错如下</p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">[stderr] Failed to load /snap/dotnet-sdk/245/shared/Microsoft.NETCore.App/8.0.5/libcoreclr.so, error: /lib/x86_64-linux-gnu/libpthread.so.0: version `GLIBC_PRIVATE<span class="string">&#x27; not found (required by /snap/core20/current/lib/x86_64-linux-gnu/librt.so.1)</span></span><br><span class="line"><span class="string">Language server process exited with null</span></span><br></pre></td></tr></table></figure></div>
@@ -1663,17 +1663,6 @@ s76,-59,76,-59s76,-60,76,-60z M1001 80H40000v40H1012z'/></svg></span></span></sp
       <tags>
         <tag>学习笔记</tag>
         <tag>dotNET</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逆向案例与笔记</title>
-    <url>/2025/03/01/%E9%80%86%E5%90%91/%E6%A1%88%E4%BE%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>爬虫逆向</category>
-      </categories>
-      <tags>
-        <tag>web逆向</tag>
       </tags>
   </entry>
   <entry>
