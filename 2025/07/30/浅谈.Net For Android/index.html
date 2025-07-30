@@ -129,7 +129,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://eliorfoy.github.io/2024/11/05/大三上/动手学深度学习（五）：深度学习计算/"/>
+    <link rel="canonical" href="https://eliorfoy.github.io/2025/07/30/浅谈.net for android/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -139,16 +139,19 @@
         
         <meta name="description" content="EliorFoy&#39;s Blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动手学深度学习（五）：深度学习计算">
-<meta property="og:url" content="https://eliorfoy.github.io/2024/11/05/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:title" content="浅谈.Net For Android">
+<meta property="og:url" content="https://eliorfoy.github.io/2025/07/30/%E6%B5%85%E8%B0%88.Net%20For%20Android/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="EliorFoy&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://eliorfoy.github.io/images/logo.jpg">
-<meta property="article:published_time" content="2024-11-04T17:47:12.000Z">
-<meta property="article:modified_time" content="2024-11-04T17:47:24.553Z">
+<meta property="article:published_time" content="2025-07-30T11:32:29.000Z">
+<meta property="article:modified_time" content="2025-07-30T13:00:14.416Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="dotNET">
+<meta property="article:tag" content="Avalonia">
+<meta property="article:tag" content="跨平台">
+<meta property="article:tag" content="Maui">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://eliorfoy.github.io/images/logo.jpg">
     
@@ -162,7 +165,7 @@
     
     <title>
         
-            动手学深度学习（五）：深度学习计算 | Wiedergeburt
+            浅谈.Net For Android | Wiedergeburt
         
     </title>
 
@@ -756,7 +759,7 @@ mjx-container[display="true"] + br {
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">动手学深度学习（五）：深度学习计算</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">浅谈.Net For Android</h1>
 			</div>
 			
 		</div>
@@ -777,15 +780,15 @@ mjx-container[display="true"] + br {
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-11-05 01:47:12</span>
-        <span class="mobile">2024-11-05 01:47:12</span>
+        <span class="desktop">2025-07-30 19:32:29</span>
+        <span class="mobile">2025-07-30 19:32:29</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-05 01:47:24</span>
-            <span class="mobile">2024-11-05 01:47:24</span>
+            <span class="desktop">2025-07-30 21:14</span>
+            <span class="mobile">2025-07-30 21:14</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -799,7 +802,7 @@ mjx-container[display="true"] + br {
                     
                         
                         <li>
-                            <a href="/categories/DeepLearning/">DeepLearning</a>&nbsp;
+                            <a href="/categories/NET/">.NET</a>&nbsp;
                         </li>
                     
                     
@@ -813,7 +816,19 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        <a href="/tags/dotNET/">dotNET</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Avalonia/">Avalonia</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">跨平台</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Maui/">Maui</a>&nbsp;
                     </li>
                 
             </ul>
@@ -839,41 +854,63 @@ mjx-container[display="true"] + br {
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="一-自定义层和块"><a class="markdownIt-Anchor" href="#一-自定义层和块"></a> (一) 自定义层和块</h1>
-<p>在之前使用Pytorch的API的时候我们通常都是直接使用<code>net = nn.Sequential(nn.Linear(20, 256), nn.ReLU(), nn.Linear(256, 10))</code> ,实际上这是一个<code>Module</code>类的列表.调用<code>net()</code>其实也是<code>net.__call__()</code>.<br>
-就我看来这个意义不是很大,实际上就是将一些代码整理为了一个类更方便逻辑理解.比如<code>net = nn.Sequential(nn.Linear(20, 256), nn.ReLU(), nn.Linear(256, 10))</code>就能表示为这样一个块:</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>(nn.Module):</span><br><span class="line">    <span class="comment"># 用模型参数声明层。这里，我们声明两个全连接的层</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 调用MLP的父类Module的构造函数来执行必要的初始化。</span></span><br><span class="line">        <span class="comment"># 这样，在类实例化时也可以指定其他函数参数，例如模型参数params（稍后将介绍）</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.hidden = nn.Linear(<span class="number">20</span>, <span class="number">256</span>)  <span class="comment"># 隐藏层</span></span><br><span class="line">        <span class="variable language_">self</span>.out = nn.Linear(<span class="number">256</span>, <span class="number">10</span>)  <span class="comment"># 输出层</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 定义模型的前向传播，即如何根据输入X返回所需的模型输出</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, X</span>):</span><br><span class="line">        <span class="comment"># 注意，这里我们使用ReLU的函数版本，其在nn.functional模块中定义。</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.out(F.relu(<span class="variable language_">self</span>.hidden(X)))</span><br></pre></td></tr></table></figure></div>
-<p>当然还能添加其它代码使这个块的功能更丰富.</p>
-<h1 id="二-参数管理"><a class="markdownIt-Anchor" href="#二-参数管理"></a> (二) 参数管理</h1>
-<p>Pytorch提供的对模型参数的读写.</p>
+			<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>首先讲讲历史吧。<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>我们都知道<code>.NET</code>最初是<code>.Net Framwork</code>，只能在Windows平台上运行（仅限 Windows，闭源，较庞大），直到后面<code>.NET Core</code>的出现，目标是创建一个<strong>轻量级、高性能、跨平台（Windows, Linux, macOS）</strong> 的开源框架。<strong>2020 年 11 月</strong>，微软发布了 <strong>.NET 5</strong>，<strong>.NET 5 是 .NET Core 的直接继承者和进化版本</strong>。它包含了 <code>.NET Core</code> 的所有优点（跨平台、开源、高性能、现代化），并开始整合<code>.NET Framework</code> 中一些有价值的特性（比如 WPF/WinForms 的跨平台支持通过 MAUI 的早期形态），以及来自 Xamarin/Mono 的移动开发能力。在写这篇文章的时候，.NET已经来到了最新的.NET 10，主要的<code>.NET</code> 版本都会在每年 11 月发布一次。每个 <code>.NET</code> 版本在发布开始时都定义为标准期限支持(STS)或长期支持(LTS)。  STS 版本以偶数年为单位发布，LTS 版本以奇数年为单位发布。<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>然后我们看看Xamarin（Mono的母公司）吧。Mono项目始于2001年，由Miguel de Icaza领导，目的是将.NET引入Linux平台。这与微软的<code>.NET Framework</code>（仅限Windows）形成对比。这说明在微软正式推动跨平台之前，Mono已经是独立的跨平台实现了。Mono提供了独立的运行时、C# 编译器及类库（如 GTK# 替代 WinForms），支持 Linux/macOS/嵌入式系统等，成为 Unity 游戏引擎和 Xamarin 移动开发的基础。由于Mono 并非微软官方产品，所以难免存在兼容性差距（如缺失 WPF/WWF，部分 WCF/ASP.NET 异步支持有限）。虽然Mono也有跨平台特性，微软在 <strong>2014 年</strong> 宣布开源 .NET Core，目标直指跨平台（Linux/macOS/Windows）和云原生场景，与 Mono 无直接技术关联。微软在<strong>2016年</strong>才收购了Xamarin，旨在整合移动开发生态（iOS/Android）。<strong>2019年</strong>.NET 5首次将CoreCLR（.NET Core的运行时）和Mono运行时作为并列选项纳入统一平台。具体来说，Mono的AOT编译能力被用于移动和Wasm场景（如Blazor），而CoreCLR专注服务器端高性能。在 <strong>2020 年 11 月</strong>，微软发布了 <strong>.NET 5</strong>。在2024年后微软将原 Mono 代码库移交 <strong>WineHQ</strong> 维护，专注于传统应用兼容性（如 Wine 中的 .NET 支持）。有趣的是，<strong>微软正在将 Mono 的关键能力（如 AOT 编译、移动端支持）逐步重构并整合到 CoreCLR 技术栈中</strong>。未来 Mono 将逐渐退化为“兼容层”，而 .NET 的跨平台主力会完全由 CoreCLR 及其衍生技术承担。</p>
+<pre class="mermaid">graph LR
+A[Mono时代] --&gt; B[过渡期]
+B --&gt; C[统一运行时]
+A --&gt;|Xamarin/iOS| D[Mono AOT]
+A --&gt;|Blazor WASM| E[Mono解释器]
+B --&gt;|.NET 5-8| F[CoreCLR+NativeAOT部分整合]
+C --&gt;|.NET 9+| G[CoreCLR全域覆盖]
+G --&gt; H[NativeAOT 移动/嵌入式]
+G --&gt; I[CoreCLR-WASM 浏览器]
+G --&gt; J[解释器 动态场景]</pre>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span><strong>2024年</strong>Mono退居二线，仅支持旧版Unity/Wine兼容层。<strong>2025年</strong>.NET 9的CoreCLR-WASM预计取代Mono的Blazor方案2。<strong>2026年</strong>预计Unity完成向CoreCLR SDK迁移，终止Mono运行时。至于Avalonia和Maui，两者也在均在<strong>逐步剥离Mono运行时</strong>，转向CoreCLR技术栈（含NativeAOT/解释器）。不过就在目前，mono运行时还没有完全被取代（至少在笔者使用的一些.NET版本中仍然可以看到mono的影子）。虽然有mono和CoreCLR两种运行时，但是机制个人认为都差不多，都是将IL 代码通过AOT编译为原生代码（在安卓平台上是so文件，注意<code>.so</code> 文件是 Android 和 Linux 系统中用于共享库的文件，通常由 C 或 C++ 代码编译生成，但 .NET Intermediate Language (IL) 也可以通过 Ahead-of-Time (AOT) 编译生成 <code>.so</code> 文件）。<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>以安卓为例，简述一下编译流程：</p>
 <ul>
-<li><code>net[i].state_dic()</code>返回该层参数字典<code>weight</code>和<code>bias</code></li>
-<li><code>net[i].bias.data</code> 直接访问张量</li>
-<li><code>net[i].weight.grad</code> 直接访问梯度</li>
-<li><code>*[(name, param.shape) for name, param in net.named_parameters()]  #('0.weight', torch.Size([8, 4])) ('0.bias', torch.Size([8])) ('2.weight', torch.Size([1, 8])) ('2.bias', torch.Size([1]))</code></li>
+<li>将 C# (或 F#/VB.NET) 代码编译成标准的 <strong>.NET 中间语言 (IL)</strong> 或 <strong>.NET 程序集 (DLL)</strong>。</li>
+<li>将 <strong>Mono 运行时本身</strong>（或者 CoreCLR，但在安卓上 Mono 更常见）<strong>编译成一个原生的 <code>libmonosgen-2.0.so</code> (或类似名称) 库</strong>。这个库是用 C/C++ 写的，包含了垃圾回收器、JIT 编译器（或 AOT 编译器）、线程管理、类型系统等核心运行时功能。</li>
+<li>将编译成的 <strong>.NET 程序集 (IL)</strong> <strong>打包嵌入</strong>到最终生成的 APK 包中（通常放在 <code>assemblies</code> 目录下）。（它们<strong>不是</strong>被转换成 C 代码再编译进 <code>so</code>）</li>
+<li><strong>可选但常见 (尤其在 Release 模式)：</strong> 使用 <strong>AOT (Ahead-Of-Time) 编译</strong>。AOT 编译器 (<code>mono --aot</code> 或 <code>crossgen</code>/<code>crossgen2</code> 对于 CoreCLR) 会<strong>将你的 .NET 程序集 (IL) 预先编译成目标平台（如 ARM）的本地机器码</strong>。这些编译好的本地机器码会被打包成<strong>一个或多个 <code>.so</code> 文件</strong>（例如 <code>libaot-MyApp.dll.so</code>）。<strong><code>libaot-*.so</code> (AOT 编译时生成)：</strong> 这些是应用代码和依赖库（如 Avalonia/MAUI 框架库）被 AOT 编译成的本地机器码。每个 <code>*.so</code> 文件对应一个 .NET 程序集。其它必要的本地库比如 Avalonia 或 MAUI 渲染引擎的本地部分、Skia 图形库、SQLite 等也编译为so文件。</li>
+<li>编译为so文件后，<code>.NET SDK</code> (csc, MSBuild), <code>Mono AOT Compiler</code> (或 .NET Native AOT 工具链)<strong>在这个阶段，.NET 平台的编译（C#/IL -&gt; 本地机器码 <code>.so</code> + 打包 Mono 运行时 <code>.so</code> + 保留元数据 <code>.dll</code>）确实已经完成了。</strong> 输出的 <code>.so</code> 文件已经包含了可以直接在 ARM/ARM64/x86 等 CPU 上执行的指令，后续就是将这些so文件进行整合在安卓平台上运行了，这个时候就少不了java和kotlin了</li>
+<li><strong>打包阶段（Android SDK + Xamarin.Android/.NET MAUI 工具链主导）</strong>，个人觉得Xamarin.Android 和 .NET MAUI 的工具链有一部分就是来自 .NET 中的 Android workload，特别是 “maui-android” workload。在这个阶段，<strong>Android SDK 的工具链确实被用来处理 Android 特有的打包任务</strong>将 .NET 编译输出的所有产物（<code>.so</code>, <code>.dll</code>, 元数据文件）以及必要的 Java/Kotlin 胶水代码、资源文件等，<strong>按照 Android APK 的标准格式组织起来</strong>，并将自动生成的<strong>Java/Kotlin 胶水代码编译成 <code>.dex</code> 文件</strong>，并生成最终的 <code>.apk</code> 或 <code>.aab</code> 文件。<br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>.NET生成的Android应用启动流程示例：</li>
+<li>在 <code>MainActivity</code> 的 <code>onCreate</code> 或其他早期生命周期方法中，Java 代码调用 <code>System.loadLibrary("monosgen-2.0")</code>。<strong>这一步通过 Android 系统的 JNI 接口加载 <code>libmonosgen-2.0.so</code>。</strong></li>
+<li>加载成功后，Java 代码<strong>通过 JNI 调用 <code>libmonosgen-2.0.so</code> 中暴露的 C 函数</strong>来初始化 Mono 运行时 (<code>mono_jit_init_version</code> 等)。</li>
+<li>然后 Java 代码<strong>再次通过 JNI 调用</strong> Mono 运行时的函数，指示它加载主应用 .dll (<code>YourApp.dll</code>) 并执行其 <code>Main</code> 方法。</li>
 </ul>
-<h1 id="三-读写文件"><a class="markdownIt-Anchor" href="#三-读写文件"></a> (三) 读写文件</h1>
-<p><code>torch.save(tensor,'tensor-file')</code>存,<code>torch.load('tensor-file')</code>读</p>
-<h1 id="四-gpu"><a class="markdownIt-Anchor" href="#四-gpu"></a> (四) GPU</h1>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.device_count() <span class="comment"># 查看GPU数量</span></span><br><span class="line">torch.device(<span class="string">f'cuda:<span class="subst">{i}</span>'</span>) <span class="comment"># 第i块GPU，通常能够通过参数device指定  </span></span><br><span class="line">torch.device(<span class="string">'cpu'</span>)</span><br><span class="line">Z = X.cuda(<span class="number">1</span>) <span class="comment"># 移动张量以便在同一个GPU上</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>最后的一些疑问：<br>
+<strong>为什么打包后的安装包体积比较大？</strong><br>
+因为运行时占一定空间<code>libmonosgen-2.0.so</code>约15-20MB，一些基础依赖库比如Avalonia/MAUI框架本身引入的.NET BCL和UI库也有一定体积，然后还有多 ABI 支持：默认包含多个 CPU 架构（如 armeabi-v7a, arm64-v8a）的库，每个增加约 30 MB。<br>
+<strong>在移动端全面使用AOT吗？</strong><br>
+几乎是，只有在调试的时候会使用到JIT。发布后的 APK 内部全部使用 AOT（提前编译）生成的 SO 文件。<br>
+<strong>性能问题</strong><br>
+Avalonia 和 MAUI 生成的应用在性能上可以通过 AOT 编译、代码裁剪等优化接近原生 Android 应用，尤其在企业应用和常规 UI 场景下。对于高性能场景（如游戏或实时计算），原生 Android 应用因直接访问硬件和平台优化而更具优势。</p>
+</blockquote>
+<hr>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"></mspace></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span>以上都是本人搜索后整理，结果不一定准确，如有误，可以评论或者联系作者修改~✋</p>
+
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 动手学深度学习（五）：深度学习计算</li>
+        <li><strong>标题:</strong> 浅谈.Net For Android</li>
         <li><strong>作者:</strong> EliorFoy</li>
         <li><strong>创建于
-                :</strong> 2024-11-05 01:47:12</li>
+                :</strong> 2025-07-30 19:32:29</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-05 01:47:24
+                    :</strong> 2025-07-30 21:00:14
             </li>
         
         <li>
-            <strong>链接:</strong> https://eliorfoy.github.io/2024/11/05/大三上/动手学深度学习（五）：深度学习计算/
+            <strong>链接:</strong> https://eliorfoy.github.io/2025/07/30/浅谈.Net For Android/
         </li>
         <li>
             <strong>
@@ -895,7 +932,19 @@ mjx-container[display="true"] + br {
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
+				<a href="/tags/dotNET/">#dotNET</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Avalonia/">#Avalonia</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">#跨平台</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Maui/">#Maui</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -906,23 +955,11 @@ mjx-container[display="true"] + br {
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2024/11/09/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E7%8E%B0%E4%BB%A3%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">动手学深度学习（七）：循环神经网络与现代循环神经网络</span>
-						<span class="post-nav-item">上一篇</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2024/10/31/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E5%82%85%E9%87%8C%E5%8F%B6%E5%A5%87%E5%81%B6%E5%AE%9E%E8%99%9A%E6%80%A7/">
+				<a class="next" rel="next" href="/2025/07/29/%E6%96%87%E7%AB%A0%E7%AE%A1%E7%90%86/Hexo%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">傅里叶奇偶实虚性讨论</span>
+						<span class="post-nav-title-item truncate max-w-48">Hexo下的一些配置问题</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -985,8 +1022,8 @@ mjx-container[display="true"] + br {
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">动手学深度学习（五）：深度学习计算</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%82%E5%92%8C%E5%9D%97"><span class="nav-text"> (一) 自定义层和块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E5%8F%82%E6%95%B0%E7%AE%A1%E7%90%86"><span class="nav-text"> (二) 参数管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-text"> (三) 读写文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-gpu"><span class="nav-text"> (四) GPU</span></a></li></ol>
+		<div class="page-title">浅谈.Net For Android</div>
+		
 
 	</div>
 </div>
